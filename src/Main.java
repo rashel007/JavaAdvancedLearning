@@ -1,47 +1,52 @@
 import AnonymousInnerClass.Contact;
 import AnonymousInnerClass.ContactService;
 import AnonymousInnerClass.FilterCriteria;
+import ProgrammingParadigm.WordFrequencyCounter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
 
+    static Map<String , Long> countFrequency(List<String> words) {
+
+
+
+        Map<String, Long> frequencyMap = new HashMap<>();
+
+
+        for (String word: words){
+
+            // imperative programming example
+
+//            if (!frequencyMap.containsKey(word)){
+//                frequencyMap.put(word, 0l);
+//            }
+
+                frequencyMap.putIfAbsent(word, 0l);
+
+
+            Long oldCount = frequencyMap.get(word);
+            frequencyMap.put(word, oldCount + 1);
+
+            // declarative programming example
+
+//            frequencyMap.merge(word, 1l, (oldValue, value) -> oldValue + value);
+
+            // putIfAbsent = if !map.containsKey
+
+        }
+
+        return frequencyMap;
+    }
+
     public static void main(String[] args) {
 
-        // anonymous inner class
-        List<Contact> contactList = new ArrayList<>();
+        List<String> words = Arrays.asList("Hello", "World", "Bangladesh", "Dhaka", "Hello", "Java", "Lambda");
 
-        contactList.add(new Contact("User1", "01709222843", 20, Contact.GENDER.MALE));
-        contactList.add(new Contact("User2", "01709222843", 30, Contact.GENDER.FEMALE));
-        contactList.add(new Contact("User3", "01709222843", 40, Contact.GENDER.MALE));
-        contactList.add(new Contact("User4", "01709222843", 50, Contact.GENDER.FEMALE));
-        contactList.add(new Contact("User5", "01709222843", 60, Contact.GENDER.MALE));
+        Map<String, Long> wordFrequency = countFrequency(words);
 
-
-        ContactService contactService = new ContactService();
-
-        List<Contact> contactsFemale = contactService.findContacts(contactList, new FilterCriteria() {
-            @Override
-            public boolean match(Contact contact) {
-                if (contact.getGender() == Contact.GENDER.FEMALE)
-                    return true;
-                else return false;
-            }
-        });
-
-        List<Contact> contactsAggedBetween30To50 = contactService.findContacts(contactList, new FilterCriteria() {
-            @Override
-            public boolean match(Contact contact) {
-
-                if (30 <= contact.getAge() && contact.getAge() <= 50)
-                    return true;
-
-                return false;
-            }
-        });
-
-        System.out.println(contactsAggedBetween30To50.size());
+        System.out.println(wordFrequency);
 
     }
 }
