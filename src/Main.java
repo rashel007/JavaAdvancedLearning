@@ -1,52 +1,34 @@
-import AnonymousInnerClass.Contact;
-import AnonymousInnerClass.ContactService;
-import AnonymousInnerClass.FilterCriteria;
-import ProgrammingParadigm.WordFrequencyCounter;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import CustomIterable.CustomArrayList;
+import CustomIterable.NormalArrayList;
 
 public class Main {
 
-    static Map<String , Long> countFrequency(List<String> words) {
-
-
-
-        Map<String, Long> frequencyMap = new HashMap<>();
-
-
-        for (String word: words){
-
-            // imperative programming example
-
-//            if (!frequencyMap.containsKey(word)){
-//                frequencyMap.put(word, 0l);
-//            }
-
-                frequencyMap.putIfAbsent(word, 0l);
-
-
-            Long oldCount = frequencyMap.get(word);
-            frequencyMap.put(word, oldCount + 1);
-
-            // declarative programming example
-
-//            frequencyMap.merge(word, 1l, (oldValue, value) -> oldValue + value);
-
-            // putIfAbsent = if !map.containsKey
-
-        }
-
-        return frequencyMap;
-    }
-
     public static void main(String[] args) {
 
-        List<String> words = Arrays.asList("Hello", "World", "Bangladesh", "Dhaka", "Hello", "Java", "Lambda");
+        CustomArrayList customArrayList = new CustomArrayList();
 
-        Map<String, Long> wordFrequency = countFrequency(words);
+        customArrayList.add("Test 1");
+        customArrayList.add("Test 2");
+        customArrayList.add("Test 3");
 
-        System.out.println(wordFrequency);
 
+        NormalArrayList normalArrayList = new NormalArrayList();
+
+        normalArrayList.add("Normal 1");
+        normalArrayList.add("Normal 2");
+        normalArrayList.add("Normal 3");
+
+
+        // this giving us error bcoz this calss is not iterable
+//        for (String normalVal: normalArrayList) {
+//            System.out.println(normalVal);
+//        }
+
+
+        // this is iterable as the class customarrlist is iterable
+        for(Object customVal : customArrayList) {
+            System.out.println(customVal);
+        }
     }
 }
