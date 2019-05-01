@@ -20,6 +20,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             this.data = data;
             this.prev = prev;
             this.next = next;
+            
         }
 
         @Override
