@@ -20,7 +20,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
             this.data = data;
             this.prev = prev;
             this.next = next;
-            
+
         }
 
         @Override
@@ -52,6 +52,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     public boolean isEmpty() {
         return size() == 0;
     }
+
 
     // add an element to the beginning of this linked list, 0(1)
     public void addFirst(T elem) {
