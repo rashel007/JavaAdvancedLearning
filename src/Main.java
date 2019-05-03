@@ -1,26 +1,30 @@
-import DataStructure.DynamicArray;
-import LinkedList.SinglyLinkedList;
+import DataStructure.LinkedList.SinglyLinkedList;
+import DataStructure.Stack.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        SinglyLinkedList<Integer> mySList = new SinglyLinkedList<>();
+        Stack<Integer> myStack = new Stack<>();
 
-        mySList.addFirst(1);
-        mySList.addFirst(2);
-        mySList.addFirst(3);
-
-//        mySList.addLast("Last 1");
-//        mySList.addLast("Last 2");
-//        mySList.addLast("Last 3");
-//
-//
-//        while (!mySList.isEmpty()){
-//            mySList.removeFirst();
-//        }
+        myStack.push(2);
+        myStack.push(3);
+        myStack.push(4);
 
 
-        System.out.println(mySList.hasElement(5));
+        for (Integer value: myStack){
+            System.out.println(value);
+        }
+        System.out.println("--------");
+        myStack.pop();
+        System.out.println(myStack.peek());
+        System.out.println("--------");
+        myStack.pop();
+        for (Integer value: myStack){
+            System.out.println(value);
+        }
+        System.out.println("--------");
+        System.out.println(myStack.peek());
+
     }
 }
