@@ -5,11 +5,11 @@ import java.util.Iterator;
 public class SinglyLinkedList<T> implements Iterable<T> {
 
     // implement a node
-    private class Node<T>{
-        private T  element;
+    private class Node<T> {
+        private T element;
         private Node<T> next;
 
-        public Node(T e, Node<T> n){
+        public Node(T e, Node<T> n) {
             element = e;
             next = n;
         }
@@ -22,11 +22,10 @@ public class SinglyLinkedList<T> implements Iterable<T> {
             return next;
         }
 
-        public void setNext(Node<T> n){
+        public void setNext(Node<T> n) {
             next = n;
         }
     }
-
 
 
 //    List implementation
@@ -36,11 +35,11 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     private int size = 0;
 
 
-    public int size(){
+    public int size() {
         return size;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
@@ -56,28 +55,28 @@ public class SinglyLinkedList<T> implements Iterable<T> {
         return tail.getElement();
     }
 
-    public void addFirst(T e){
+    public void addFirst(T e) {
         head = new Node<>(e, head);
-        if (size == 0){
+        if (size == 0) {
             tail = head;
         }
 
         size++;
-        System.out.println("Added head node with "+ head.getElement());
+        System.out.println("Added head node with " + head.getElement());
     }
 
 
     public void addLast(T e) {
         Node<T> newNode = new Node<>(e, null);
-        if (isEmpty()){
+        if (isEmpty()) {
             head = newNode;
-        }else {
+        } else {
             tail.setNext(newNode);
         }
 
         tail = newNode;
         size++;
-        System.out.println("Added a tail node with "+ tail.getElement());
+        System.out.println("Added a tail node with " + tail.getElement());
     }
 
     public T removeFirst() {
@@ -88,7 +87,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
         head = head.getNext();
         size--;
-        if (size == 0){
+        if (size == 0) {
             tail = null;
         }
 
@@ -97,7 +96,25 @@ public class SinglyLinkedList<T> implements Iterable<T> {
         return answer;
     }
 
+    public boolean hasElement(T e) {
 
+        if (isEmpty()) return false;
+
+        Node current = head;
+
+        while (current != null) {
+            if (current.getElement().equals(e)) {
+                return true;
+            }
+            if (current.next == null) {
+                return false;
+            }
+
+            current = current.next;
+        }
+
+        return false;
+    }
 
 
     @Override

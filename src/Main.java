@@ -5,20 +5,22 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SinglyLinkedList<String> mySList = new SinglyLinkedList<>();
+        SinglyLinkedList<Integer> mySList = new SinglyLinkedList<>();
 
-        mySList.addFirst("First 1");
-        mySList.addFirst("First 2");
-        mySList.addFirst("First 3");
-        mySList.addLast("Last 1");
-        mySList.addLast("Last 2");
-        mySList.addLast("Last 3");
+        mySList.addFirst(1);
+        mySList.addFirst(2);
+        mySList.addFirst(3);
+
+//        mySList.addLast("Last 1");
+//        mySList.addLast("Last 2");
+//        mySList.addLast("Last 3");
+//
+//
+//        while (!mySList.isEmpty()){
+//            mySList.removeFirst();
+//        }
 
 
-        while (!mySList.isEmpty()){
-            mySList.removeFirst();
-        }
-
-
+        System.out.println(mySList.hasElement(5));
     }
 }
