@@ -1,30 +1,28 @@
 import DataStructure.LinkedList.SinglyLinkedList;
+import DataStructure.Queue.MyCustomQueue;
 import DataStructure.Stack.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Stack<Integer> myStack = new Stack<>();
+        MyCustomQueue<Integer> queue = new MyCustomQueue<>();
 
-        myStack.push(2);
-        myStack.push(3);
-        myStack.push(4);
+        queue.offer(3);
+        queue.offer(2);
+        queue.offer(1);
 
-
-        for (Integer value: myStack){
+        for (Integer value: queue){
             System.out.println(value);
         }
-        System.out.println("--------");
-        myStack.pop();
-        System.out.println(myStack.peek());
-        System.out.println("--------");
-        myStack.pop();
-        for (Integer value: myStack){
+
+        queue.pool();
+
+        for (Integer value: queue){
             System.out.println(value);
         }
-        System.out.println("--------");
-        System.out.println(myStack.peek());
+
+
 
     }
 }
